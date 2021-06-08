@@ -3,7 +3,14 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  APIBaseUrl: 'https://localhost:5001/api',
+  AuthUrls: {
+    Signup: '/Accounts/Signup',
+    Signin: '/Accounts/Signin',
+    Client: '/Accounts/Signup/Client',
+    Employee: '/Auth/Employee/',
+  },
 };
 
 /*

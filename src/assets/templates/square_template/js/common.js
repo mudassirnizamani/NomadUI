@@ -3,6 +3,34 @@
   svg4everybody();
 })();
 
+// Custom Functions - Mudasir Ali
+
+// This is Function will Toggle Sidebar with class name .js-header2-burger
+function toggle_sidebar_2() {
+  var header = $(".js-header2"),
+    burger = header.find(".js-header2-burger"),
+    bg = header.find(".js-header2-bg"),
+    sidebar = $(".js-sidebar2"),
+    closeSidebar = sidebar.find(".js-sidebar2-close"),
+    page = $(".js-page2"),
+    html = $("html"),
+    body = $("body");
+
+  burger.on("click", function () {
+    sidebar.addClass("visible");
+    bg.toggleClass("visible");
+    html.addClass("no-scroll");
+    body.addClass("no-scroll");
+  });
+  closeSidebar.on("click", function () {
+    page.removeClass("toggle");
+    sidebar.removeClass("visible");
+    bg.removeClass("visible");
+    html.removeClass("no-scroll");
+    body.removeClass("no-scroll");
+  });
+}
+
 // check if touch device
 function isTouchDevice() {
   var prefixes = " -webkit- -moz- -o- -ms- ".split(" ");

@@ -1,0 +1,50 @@
+<div class="header2 js-header2">
+  <button class="header2__burger js-header2-burger">
+    <svg class="icon icon-burger">
+      <use xlink:href="/assets/templates/square_template/img/sprite.svg#icon-burger"></use>
+    </svg></button
+  ><a class="header2__logo" href="#"
+    ><img
+      class="header2__pic header2__pic_black"
+      src="/assets/templates/square_template/img/logo.svg"
+      alt="" /><img
+      class="header2__pic header2__pic_white"
+      src="/assets/templates/square_template/img/logo-white.svg"
+      alt=""
+  /></a>
+
+  <div class="header2__group">
+    <button class="header2__link active js-header2-users">
+      <svg class="icon icon-chat">
+        <use
+          xlink:href="/assets/templates/square_template/img/sprite.svg#icon-chat"
+        ></use>
+      </svg></button
+    ><a
+      class="header2__link header2__link_bell active"
+      href="square-notifications.html"
+      ><svg class="icon icon-bell">
+        <use
+          xlink:href="/assets/templates/square_template/img/sprite.svg#icon-bell"
+        ></use></svg></a>
+  </div>
+  <a
+    class="header2__profile"
+    nzTrigger="click"
+    nz-dropdown
+    [nzDropdownMenu]="menu"
+    nzPlacement="bottomRight"
+    ><img
+      class="header2__pic"
+      src="/assets/templates/square_template/img/ava-1.png"
+      alt=""
+  /></a>
+  <nz-dropdown-menu #menu="nzDropdownMenu">
+    <ul nz-menu>
+      <li nz-menu-item>1st menu item length</li>
+      <li nz-menu-item>2nd menu item length</li>
+      <li nz-menu-item (click)="signout()"><i class="fas fa-sign-out-alt"></i> Signout</li>
+    </ul>
+  </nz-dropdown-menu>
+  <div class="header2__bg js-header2-bg"></div>
+</div>

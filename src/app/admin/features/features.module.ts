@@ -1,12 +1,8 @@
 import { NgModule } from '@angular/core';
 import { IndexModule } from './index/index.module';
 
-
-
 @NgModule({
   declarations: [],
-  imports: [
-    IndexModule
-  ]
+  imports: [IndexModule],
 })
-export class FeaturesModule { }
+export class FeaturesModule {}

@@ -10,14 +10,14 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: IndexComponent
-      }
-    ]
-  }
+        component: IndexComponent,
+      },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AdminRoutingModule { }
+export class AdminRoutingModule {}

@@ -1,0 +1,33 @@
+<div class="sidebar2 js-sidebar2">
+  <div class="sidebar2__top">
+    <button class="sidebar2__close js-sidebar2-close">
+      <svg class="icon icon-close">
+        <use xlink:href="/assets/templates/square_template/img/sprite.svg#icon-close"></use>
+      </svg></button
+    ><a class="sidebar2__logo" href="#"
+      ><img
+        class="sidebar2__pic sidebar2__pic_black"
+        src="img/logo.svg"
+        alt="" /><img
+        class="sidebar2__pic sidebar2__pic_white"
+        src="img/logo-white.svg"
+        alt=""
+    /></a>
+  </div>
+  <div class="sidebar2__wrapper">
+    <app-sidebar-user-profile></app-sidebar-user-profile>
+    <div class="sidebar2__category">Dashboard</div>
+    <div class="sidebar2__nav">
+      <a
+        class="sidebar2__item"
+        [routerLink]="['/admin/']"
+        routerLinkActive="active"
+        ><svg class="icon icon-dashboard">
+          <use
+            xlink:href="/assets/templates/square_template/img/sprite.svg#icon-dashboard"
+          ></use></svg>Dashboard</a
+      >
+    </div>
+    <app-theme-toggle-switch></app-theme-toggle-switch>
+  </div>
+</div>

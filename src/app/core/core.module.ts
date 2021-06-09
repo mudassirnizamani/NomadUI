@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
-
+// Importing Services - Mudasir Ali
+import { SignoutService } from './services/signout/signout.service';
 
 @NgModule({
   declarations: [],
-  imports: [
-    CommonModule
-  ]
+  imports: [],
+  exports: [],
+  providers: [SignoutService],
 })
-export class CoreModule { }
+export class CoreModule {}

@@ -7,10 +7,13 @@ export const environment = {
   APIBaseUrl: 'https://localhost:5001/api',
   AuthUrls: {
     Signup: '/Accounts/Signup',
-    Signin: '/Accounts/Signin',
-    Client: '/Accounts/Signup/Client',
+    Signin: '/Auth/Signin/',
+    Client: '/Auth/Client',
     Employee: '/Auth/Employee/',
   },
+  UserRoles: {
+    UserName: '/User/GetUserRole/'
+  }
 };
 
 /*

@@ -177,7 +177,7 @@ export class EmployeeSignupComponent implements OnInit {
           }
         },
         (error: any) => {
-          this.toastr.error("Server didn't respond", 'Plz, Try later');
+          this.toastr.error("Server didn't respond", 'Plz try later');
           this.isLoading = false;
         }
       );

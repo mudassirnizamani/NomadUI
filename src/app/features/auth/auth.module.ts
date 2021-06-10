@@ -5,14 +5,15 @@ import { EmployeeSignupComponent } from './components/employee-signup/employee-s
 import { ClientSignupComponent } from './components/client-signup/client-signup.component';
 import { AuthService } from './services/auth.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
+import { AuthRoutingModule } from './auth-routing.module';
+import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 // Importing AntDesign Modules - Mudasir Ali
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzFormModule } from 'ng-zorro-antd/form';
-import { RouterModule } from '@angular/router';
 import { NzTypographyModule } from 'ng-zorro-antd/typography';
 
 @NgModule({
@@ -23,7 +24,8 @@ import { NzTypographyModule } from 'ng-zorro-antd/typography';
     ClientSignupComponent,
   ],
   imports: [
-    BrowserModule,
+    AuthRoutingModule,
+    CommonModule,
     RouterModule,
     NzFormModule,
     NzInputModule,

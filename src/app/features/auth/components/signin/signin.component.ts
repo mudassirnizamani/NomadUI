@@ -25,26 +25,6 @@ export class SigninComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    if (
-      localStorage.getItem('token') != null &&
-      localStorage.getItem('userType') == 'Admin'
-    ) {
-      this.toastr.info(`You are already Signed In`, 'Already Signed In');
-      this.router.navigateByUrl('/admin');
-    } else if (
-      localStorage.getItem('token') != null &&
-      localStorage.getItem('userType') == 'Client'
-    ) {
-      this.toastr.info(`You are already Signed In`, 'Already Signed In');
-      this.router.navigateByUrl('/client');
-    } else if (
-      localStorage.getItem('token') != null &&
-      localStorage.getItem('userType') == 'Employee'
-    ) {
-      this.toastr.info(`You are already Signed In`, 'Already Signed In');
-      this.router.navigateByUrl('/employee');
-    }
-
     // Signup Form for Signup Page - Mudasir Ali
     this.SigninForm = new FormGroup({
       userName: new FormControl('', [Validators.required]),

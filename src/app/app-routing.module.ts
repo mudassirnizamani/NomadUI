@@ -1,62 +1,39 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-// Importing Componennts
-import { AuthLayoutComponent } from './blocks/layouts/auth-layout/auth-layout.component';
-import { ClientSignupComponent } from './features/auth/components/client-signup/client-signup.component';
-import { EmployeeSignupComponent } from './features/auth/components/employee-signup/employee-signup.component';
-import { SigninComponent } from './features/auth/components/signin/signin.component';
-import { SignupComponent } from './features/auth/components/signup/signup.component';
+// Importing Guards
+import { AdminGuard } from './core/guards/admin/admin.guard';
+import { AuthGuard } from './core/guards/auth/auth.guard';
+import { ClientGuard } from './core/guards/client/client.guard';
+import { EmployeeGuard } from './core/guards/employee/employee.guard';
 
 const routes: Routes = [
   {
     path: '',
-    component: AuthLayoutComponent,
-    children: [
-      {
-        path: '',
-        component: SigninComponent,
-      },
-      {
-        path: 'auth/signup',
-        component: SignupComponent,
-      },
-      {
-        path: 'auth',
-        component: SigninComponent,
-      },
-      {
-        path: 'auth/employee',
-        component: EmployeeSignupComponent,
-      },
-      {
-        path: 'auth/client',
-        component: ClientSignupComponent,
-      },
-      {
-        path: 'auth/signin',
-        component: SigninComponent,
-      },
-    ],
+    loadChildren: () =>
+      import('./features/auth/auth.module').then((module) => module.AuthModule),
+    canActivate: [AuthGuard],
   },
   {
     path: 'admin',
-    loadChildren: () => import("./admin/admin.module").then(
-      module => module.AdminModule
-    )
+    loadChildren: () =>
+      import('./admin/admin.module').then((module) => module.AdminModule),
+    canActivate: [AdminGuard],
   },
   {
     path: 'client',
-    loadChildren: () => import("./client/client.module").then(
-      module => module.ClientModule
-    )
+    loadChildren: () =>
+      import('./client/client.module').then((module) => module.ClientModule),
+    canActivate: [ClientGuard],
   },
   {
     path: 'employee',
-    loadChildren: () => import("./employee/employee.module").then(
-      module => module.EmployeeModule
-    )
-  }
+    loadChildren: () =>
+      import('./employee/employee.module').then(
+        (module) => module.EmployeeModule
+      ),
+    canActivate: [EmployeeGuard],
+  },
 ];
 
 @NgModule({

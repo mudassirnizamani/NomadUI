@@ -10,10 +10,15 @@ export const environment = {
     Signin: '/Auth/Signin/',
     Client: '/Auth/Client',
     Employee: '/Auth/Employee/',
+    GetUser: '/Auth/GetUser/',
   },
   UserRoles: {
-    UserName: '/User/GetUserRole/'
-  }
+    UserName: '/User/GetUserRole/',
+  },
+  User: {
+    GetAllUsers: '/User/GetAllUsers/',
+    GetUserByUserName: '/User/GetUserByUserName/',
+  },
 };
 
 /*

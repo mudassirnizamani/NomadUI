@@ -1,13 +1,15 @@
+<nz-spin [nzSpinning]="isLoading">
 <a class="sidebar2__profile" href="square-profile.html">
   <div class="ava">
     <img
       class="ava__pic"
-      src="/assets/templates/square_template/img/ava-1.png"
+      src="{{userData.profilePic}}"
       alt=""
     />
   </div>
   <div class="sidebar2__details">
-    <div class="sidebar2__user">Ahmad Nur Fawaid</div>
-    <div class="sidebar2__login">@fawait</div>
+    <div class="sidebar2__user">{{userData.firstName}} {{userData.lastName}}</div>
+    <div class="sidebar2__login">{{userData.userName}}</div>
   </div>
 </a>
+</nz-spin>

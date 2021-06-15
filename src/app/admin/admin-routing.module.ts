@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminIndexLayoutComponent } from './blocks/layouts/index-layout/index-layout.component';
-import { IndexComponent } from './features/index/components/index/index.component';
+import { IndexComponent } from './features/index/index.component';
 
 const routes: Routes = [
   {
@@ -11,6 +11,20 @@ const routes: Routes = [
       {
         path: '',
         component: IndexComponent,
+      },
+      {
+        path: 'users',
+        loadChildren: () =>
+          import('./features/users/users.module').then(
+            (module) => module.UsersModule
+          ),
+      },
+      {
+        path: 'users/profile/:username',
+        loadChildren: () =>
+          import('./features/user-profile/user-profile.module').then(
+            (module) => module.UserProfileModule
+          ),
       },
     ],
   },

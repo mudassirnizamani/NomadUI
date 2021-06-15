@@ -1,0 +1,76 @@
+<div class="student__ava">
+  <img class="student__pic" src="{{ userData.profilePic }}" alt="" />
+</div>
+<div class="student__title title title_sm">
+  {{ userData.firstName }} {{ userData.lastName }}
+</div>
+<div class="student__options">
+  <div class="student__option">
+    <div class="student__category">Active</div>
+    <div
+      class="student__counter"
+      nz-typography
+      nzType="success"
+      *ngIf="userData.isActive"
+    >
+      <i class="fas fa-check-circle"></i>
+    </div>
+    <div
+      class="student__counter"
+      nz-typography
+      nzType="danger"
+      *ngIf="!userData.isActive"
+    >
+      <i class="fas fa-times-circle"></i>
+    </div>
+  </div>
+  <div class="student__option">
+    <div class="student__category">Email</div>
+    <div
+      class="student__counter"
+      nz-typography
+      nzType="success"
+      *ngIf="userData.emailConfirmed"
+    >
+      <i class="fas fa-check-circle"></i>
+    </div>
+    <div
+      class="student__counter"
+      nz-typography
+      nzType="danger"
+      *ngIf="!userData.emailConfirmed"
+    >
+      <i class="fas fa-times-circle"></i>
+    </div>
+  </div>
+  <div class="student__option">
+    <div class="student__category">Phone</div>
+    <div
+      class="student__counter"
+      nz-typography
+      nzType="success"
+      *ngIf="userData.phoneNumberConfirmed"
+    >
+      <i class="fas fa-check-circle"></i>
+    </div>
+    <div
+      class="student__counter"
+      nz-typography
+      nzType="danger"
+      *ngIf="!userData.phoneNumberConfirmed"
+    >
+      <i class="fas fa-times-circle"></i>
+    </div>
+  </div>
+</div>
+
+<button
+  nz-button
+  nzDanger
+  nzType="primary"
+  class="student__btn"
+  routerLink="/admin/users/profile/{{ userData.userName }}"
+  nzShape="round"
+>
+  <i nz-icon nzType="eye" nzTheme="outline"></i> View Profile
+</button>

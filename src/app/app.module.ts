@@ -21,6 +21,7 @@ import { BlocksModule } from './blocks/blocks.module';
 import { AdminModule } from './admin/admin.module';
 import { EmployeeModule } from './employee/employee.module';
 import { ClientModule } from './client/client.module';
+import { SharedModule } from './shared/shared.module';
 
 registerLocaleData(en);
 
@@ -33,6 +34,7 @@ const CustomModules = [
   AdminModule,
   ClientModule,
   EmployeeModule,
+  SharedModule,
 ];
 
 const AdminModules = [];

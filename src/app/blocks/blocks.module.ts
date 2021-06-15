@@ -1,12 +1,9 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
-
+import { RouterModule } from '@angular/router';
+import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule
-  ]
+  declarations: [AuthLayoutComponent],
+  imports: [RouterModule],
 })
-export class BlocksModule { }
+export class BlocksModule {}

@@ -37,9 +37,9 @@
             ],
             "styles": [
               "src/theme.less",
-              "src/assets/templates/square_template/css/app.css",
+              "src/styles.scss",
               "node_modules/ngx-toastr/toastr.css",
-              "src/styles.scss"
+              "src/assets/templates/square_template/css/app.css"
             ],
             "scripts": [
               "src/assets/templates/square_template/js/app.js",

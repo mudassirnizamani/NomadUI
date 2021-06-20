@@ -1,0 +1,54 @@
+<section class="heading-section rounded-lg mr-5">
+  <h1 class="title text-4xl text-center">Todos</h1>
+</section>
+
+<div class="container add-todo-box-container">
+  <div class="add-todo-box">
+    <form #form="ngForm" nz-form [formGroup]="AddTodo" (ngSubmit)="onSubmit()">
+      <h2 class="title is-5">New Todo</h2>
+
+      <div class="flex mt-3">
+        <nz-form-item class="rounded-md w-2/5">
+          <nz-form-control nzHasFeedback [nzErrorTip]="todoError">
+            <nz-input-group>
+              <input
+                nz-input
+                formControlName="todo"
+                placeholder=""
+                type="text"
+              />
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <p class="control">
+          <button
+            type="submit"
+            class="
+              bg-blue-500
+              hover:bg-blue-700
+              text-white
+              font-bold
+              shadow
+              ml-4
+              py-2
+              px-3
+              rounded-full
+            "
+          >
+            <i class="fas fa-plus-circle"></i>
+          </button>
+        </p>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Validation Templates -->
+<ng-template #todoError>
+  <ng-container *ngIf="Todo.hasError('required')">
+    Plz enter something
+  </ng-container>
+  <ng-container *ngIf="Todo.errors.minlength">
+    Atleast 2 characters are requierd
+  </ng-container>
+</ng-template>

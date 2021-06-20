@@ -7,6 +7,16 @@
     &:hover {
       .icon {
         transform: scale(1.05);
+        color: #0062ff !important;
+      }
+      i {
+        color: #0062ff !important;
+      }
+    }
+
+    .active {
+      i {
+        color: #0062ff !important;
       }
     }
   }

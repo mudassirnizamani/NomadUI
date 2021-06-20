@@ -24,13 +24,36 @@
       >
       <a
         class="sidebar2__item"
-        [routerLink]="['/admin/users/']"
+        routerLink="/admin/users/"
         routerLinkActive="active"
-        ><svg class="icon icon-dashboard">
+        ><i
+          nz-icon
+          nzType="usergroup-add"
+          class="icon text-gray-400"
+          nzTheme="outline"
+        ></i>
+        Users</a
+      >
+      <a
+        class="sidebar2__item"
+        routerLinkActive="active"
+        routerLink="/admin/leads/"
+        ><svg class="icon icon-leaderboard">
           <use
-            xlink:href="/assets/templates/square_template/img/sprite.svg#icon-dashboard"
-          ></use></svg
-        >Users</a
+            xlink:href="/assets/templates/square_template/img/sprite.svg#icon-leaderboard"
+          ></use></svg>Leads</a
+      >
+      <a
+        class="sidebar2__item"
+        routerLink="/admin/todos/"
+        routerLinkActive="active"
+        ><i class="icon text-gray-400 fas fa-th-list"></i> Todos</a
+      >
+    </div>
+    <div class="sidebar2__category mt-2">Account</div>
+    <div class="sidebar2__nav">
+      <a (click)="signout()" class="sidebar2__item"
+        ><i class="icon text-gray-400 fas fa-sign-out-alt"></i> Signout</a
       >
     </div>
     <app-theme-toggle-switch></app-theme-toggle-switch>

@@ -26,6 +26,20 @@ const routes: Routes = [
             (module) => module.UserProfileModule
           ),
       },
+      {
+        path: 'todos',
+        loadChildren: () =>
+          import('./features/todos/todos.module').then(
+            (module) => module.TodosModule
+          ),
+      },
+      {
+        path: 'leads',
+        loadChildren: () =>
+          import('./features/leads/leads.module').then(
+            (module) => module.LeadsModule
+          ),
+      },
     ],
   },
 ];

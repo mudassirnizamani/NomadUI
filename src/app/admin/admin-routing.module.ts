@@ -40,6 +40,13 @@ const routes: Routes = [
             (module) => module.LeadsModule
           ),
       },
+      {
+        path: 'notifications',
+        loadChildren: () =>
+          import('./features/notifications/notifications.module').then(
+            (module) => module.NotificationsModule
+          ),
+      },
     ],
   },
 ];

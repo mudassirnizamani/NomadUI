@@ -8,7 +8,7 @@ export const environment = {
   AuthUrls: {
     Signup: '/Accounts/Signup',
     Signin: '/Auth/Signin/',
-    Client: '/Auth/Client',
+    Client: '/Auth/Client/',
     Employee: '/Auth/Employee/',
     GetUser: '/Auth/GetUser/',
   },
@@ -18,7 +18,11 @@ export const environment = {
   User: {
     GetAllUsers: '/User/GetAllUsers/',
     GetUserByUserName: '/User/GetUserByUserName/',
+    GetAllUSerCount: '/User/GetAllUsersCount/'
   },
+  Leads: {
+    GetAllLeads: '/Lead/GetAllLeads/'
+  }
 };
 
 /*

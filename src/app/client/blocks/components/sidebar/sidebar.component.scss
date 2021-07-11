@@ -1,0 +1,23 @@
+.sidebar2__nav {
+  .icon {
+    transition: all 0.4s ease-in;
+  }
+
+  .sidebar2__item {
+    &:hover {
+      .icon {
+        transform: scale(1.05);
+        color: #0062ff !important;
+      }
+      i {
+        color: #0062ff !important;
+      }
+    }
+
+    .active {
+      i {
+        color: #0062ff !important;
+      }
+    }
+  }
+}

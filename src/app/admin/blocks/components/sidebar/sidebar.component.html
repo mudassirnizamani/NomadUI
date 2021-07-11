@@ -52,6 +52,15 @@
     </div>
     <div class="sidebar2__category mt-2">Account</div>
     <div class="sidebar2__nav">
+      <a
+        class="sidebar2__item"
+        routerLinkActive="active"
+        routerLink="/admin/notifications/"
+        ><svg class="icon icon-bell">
+          <use
+            xlink:href="/assets/templates/square_template/img/sprite.svg#icon-bell"
+          ></use></svg>Notifications</a
+      >
       <a (click)="signout()" class="sidebar2__item"
         ><i class="icon text-gray-400 fas fa-sign-out-alt"></i> Signout</a
       >

@@ -1,7 +1,9 @@
 <div class="header2 js-header2">
   <button class="header2__burger js-header2-burger">
     <svg class="icon icon-burger">
-      <use xlink:href="/assets/templates/square_template/img/sprite.svg#icon-burger"></use>
+      <use
+        xlink:href="/assets/templates/square_template/img/sprite.svg#icon-burger"
+      ></use>
     </svg></button
   ><a class="header2__logo" href="#"
     ><img
@@ -21,8 +23,8 @@
         ></use>
       </svg></button
     ><a
-      class="header2__link header2__link_bell active"
-      href="square-notifications.html"
+      class="header2__link header2__link_bell"
+      routerLink="/admin/notifications/"
       ><svg class="icon icon-bell">
         <use
           xlink:href="/assets/templates/square_template/img/sprite.svg#icon-bell"
@@ -41,9 +43,13 @@
   /></a>
   <nz-dropdown-menu #menu="nzDropdownMenu">
     <ul nz-menu>
-      <li nz-menu-item>1st menu item length</li>
+      <li nz-menu-item class="flex justify-between">
+        Profile<i class="fas text-blue-500 fa-user-circle"></i>
+      </li>
       <li nz-menu-item>2nd menu item length</li>
-      <li nz-menu-item (click)="signout()"><i class="fas fa-sign-out-alt"></i> Signout</li>
+      <li nz-menu-item (click)="signout()" class="flex justify-between">
+        Signout<i class="fas text-blue-500 fa-sign-out-alt"></i>
+      </li>
     </ul>
   </nz-dropdown-menu>
   <div class="header2__bg js-header2-bg"></div>

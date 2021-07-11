@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { ClientModel } from '../models/ClientSignup.interface';
 import { EmployeeModel } from '../models/EmployeeSignup.interface';
 import { SigninModel } from '../models/Signin.interface';
 
@@ -22,6 +23,22 @@ export class AuthService {
     };
     return this.http.post(
       environment.APIBaseUrl + environment.AuthUrls.Employee,
+      body
+    );
+  }
+
+  ClientSignup(model: ClientModel) {
+    var body = {
+      email: model.email.toString(),
+      userName: model.userName.toString(),
+      firstName: model.firstName.toString(),
+      lastName: model.lastName.toString(),
+      password: model.password.toString(),
+      phoneNumber: model.phoneNumber.toString(),
+      profilePic: model.profilePic.toString(),
+    };
+    return this.http.post(
+      environment.APIBaseUrl + environment.AuthUrls.Client,
       body
     );
   }

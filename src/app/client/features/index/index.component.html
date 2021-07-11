@@ -1,0 +1,229 @@
+<div class="admin">
+  <div class="admin__head">
+    <div class="admin__details">
+      <div class="admin__title title title_big">Welcome, {{user.firstName}}</div>
+      <div class="admin__date">{{date}}</div>
+    </div>
+    <div class="admin__btns"><button class="admin__btn btn btn_gray">See Recent Jobs Ads</button><button class="admin__btn btn btn_blue">Add New Ad Jobs</button></div>
+  </div>
+      <div class="text-3xl font-semibold font-sans text-black w-100 bg-white p-3 pl-4 rounded-lg mb-10">Projects Summary</div>
+  <div class="admin__list">
+    <a class="admin__item shadow hover:shadow-lg">
+      <div class="admin__icon bg-purple-400"><i class="icon text-white fas fa-play"></i></div>
+      <div class="admin__number">0</div>
+      <div class="admin__info">Started</div>
+    </a>
+    <a class="admin__item shadow hover:shadow-lg">
+      <div class="admin__icon bg-blue-400"><i class="icon text-white fas fa-hourglass-start"></i></div>
+      <div class="admin__number">1</div>
+      <div class="admin__info">In Progress</div>
+    </a>
+    <a class="admin__item shadow hover:shadow-lg">
+      <div class="admin__icon bg-yellow-400"><i class="icon text-white fas fa-pause"></i></div>
+      <div class="admin__number">0</div>
+      <div class="admin__info">On Hold</div>
+    </a>
+  </div>
+  <div class="admin__list">
+    <a class="admin__item shadow hover:shadow-lg">
+      <div class="admin__icon bg-red-400"><i class="icon text-white fab fa-cuttlefish"></i></div>
+      <div class="admin__number">0</div>
+      <div class="admin__info">Canceled</div>
+    </a>
+    <a class="admin__item shadow hover:shadow-lg">
+      <div class="admin__icon bg-green-400"><i class="icon text-white fas fa-check"></i></div>
+      <div class="admin__number">0</div>
+      <div class="admin__info">Finished</div>
+    </a>
+  </div>
+  <div class="admin__row">
+    <div class="admin__col admin__col_w75">
+      <div class="admin__card admin__card_p30">
+        <div class="admin__top">
+          <div class="admin__details">
+            <div class="admin__total">Total Impressions</div>
+            <div class="admin__number">2,412,314 </div>
+          </div>
+          <div class="admin__legends">
+            <div class="admin__parameter">
+              <div class="admin__bg" style="background-color: #0062FF;"></div>
+              <div class="admin__text">Search</div>
+            </div>
+            <div class="admin__parameter">
+              <div class="admin__bg" style="background-color: #50B5FF;"></div>
+              <div class="admin__text">Job Booster</div>
+            </div>
+            <div class="admin__parameter">
+              <div class="admin__bg" style="background-color: #FF974A;"></div>
+              <div class="admin__text">Job Alert</div>
+            </div>
+            <div class="admin__parameter">
+              <div class="admin__bg" style="background-color: #FFC542;"></div>
+              <div class="admin__text">Company Booster</div>
+            </div>
+          </div><select class="admin__select">
+            <option>This Years</option>
+            <option>This Years</option>
+            <option>This Years</option>
+          </select>
+        </div>
+        <div class="admin__chart admin__chart_total">
+          <div id="chart-total-impressions"></div>
+        </div>
+      </div>
+      <div class="admin__row admin__row_tablet">
+        <div class="admin__col admin__col_w65">
+          <div class="admin__card">
+            <div class="admin__chart admin__chart_financial">
+              <div id="chart-financial-goals"></div>
+            </div>
+            <div class="admin__bottom">
+              <div class="admin__details"><a class="admin__title title title_sm" href="#">Financial Goals<svg class="icon icon-arrow-right">
+                    <use xlink:href="img/sprite.svg#icon-arrow-right"></use>
+                  </svg></a>
+                <div class="admin__info">Set your financial goal every day of you need</div>
+              </div>
+              <div class="admin__variants">
+                <div class="admin__text">Show Data:</div><select class="admin__select">
+                  <option selected>This Week</option>
+                  <option>This Week</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="admin__col admin__col_w35">
+          <div class="admin__card admin__card_pb20">
+            <div class="admin__flex">
+              <div class="admin__title title title_sm">Popular Jobs</div><select class="admin__select">
+                <option selected>This Week</option>
+                <option>This Week</option>
+              </select>
+            </div>
+            <div class="admin__popular">
+              <div class="admin__line">
+                <div class="admin__details">
+                  <div class="admin__category">UID</div>
+                  <div class="admin__info">UI Designer</div>
+                </div>
+                <div class="admin__chart">
+                  <div id="spark-1"></div>
+                </div>
+                <div class="admin__result"><svg class="icon icon-profile">
+                    <use xlink:href="img/sprite.svg#icon-profile"></use>
+                  </svg>
+                  <div class="admin__text">2,129</div><svg class="icon icon-arrow-top">
+                    <use xlink:href="img/sprite.svg#icon-arrow-top"></use>
+                  </svg>
+                </div>
+              </div>
+              <div class="admin__line">
+                <div class="admin__details">
+                  <div class="admin__category">UXD</div>
+                  <div class="admin__info">UX Designer</div>
+                </div>
+                <div class="admin__chart">
+                  <div id="spark-2"></div>
+                </div>
+                <div class="admin__result"><svg class="icon icon-profile">
+                    <use xlink:href="img/sprite.svg#icon-profile"></use>
+                  </svg>
+                  <div class="admin__text">4,112</div><svg class="icon icon-arrow-bottom">
+                    <use xlink:href="img/sprite.svg#icon-arrow-bottom"></use>
+                  </svg>
+                </div>
+              </div>
+              <div class="admin__line">
+                <div class="admin__details">
+                  <div class="admin__category">IXD</div>
+                  <div class="admin__info">Interaction Dsgn</div>
+                </div>
+                <div class="admin__chart">
+                  <div id="spark-3"></div>
+                </div>
+                <div class="admin__result"><svg class="icon icon-profile">
+                    <use xlink:href="img/sprite.svg#icon-profile"></use>
+                  </svg>
+                  <div class="admin__text">1,995</div><svg class="icon icon-arrow-top">
+                    <use xlink:href="img/sprite.svg#icon-arrow-top"></use>
+                  </svg>
+                </div>
+              </div>
+              <div class="admin__line">
+                <div class="admin__details">
+                  <div class="admin__category">PM </div>
+                  <div class="admin__info">Project Manager</div>
+                </div>
+                <div class="admin__chart">
+                  <div id="spark-4"></div>
+                </div>
+                <div class="admin__result"><svg class="icon icon-profile">
+                    <use xlink:href="img/sprite.svg#icon-profile"></use>
+                  </svg>
+                  <div class="admin__text">928</div><svg class="icon icon-arrow-bottom">
+                    <use xlink:href="img/sprite.svg#icon-arrow-bottom"></use>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="admin__col admin__col_w25">
+      <div class="admin__card">
+        <div class="admin__stat">
+          <div class="admin__title title title_sm">Target’s Percent</div>
+          <div class="admin__chart admin__chart_percent">
+            <div id="chart-targets-percent"></div>
+          </div>
+          <div class="admin__number">74%</div>
+          <div class="admin__info">
+            <p>That’s yearly company’s target.</p>
+            <p>Needs Improvement</p>
+          </div><button class="admin__btn btn btn_gray">Learn More</button>
+        </div>
+      </div>
+      <div class="admin__card">
+        <div class="admin__jobs">
+          <div class="admin__flex">
+            <div class="admin__details">
+              <div class="admin__info">Recent Jobs Ads</div>
+              <div class="admin__counter"><span>15</span>/25</div>
+            </div>
+            <div class="admin__status">10 Ads Unposted</div>
+          </div>
+          <div class="admin__group"><a class="admin__box" href="#">
+              <div class="admin__logo"><img class="admin__pic" src="img/twitch.png" alt=""></div>
+              <div class="admin__desc">
+                <div class="admin__title">iOS Developer Mobile</div>
+                <div class="admin__info"><span>Twitch</span><span>New York, USA</span></div>
+                <div class="admin__price"><span class="admin__money">$100</span> / Hr</div>
+              </div>
+            </a><a class="admin__box" href="#">
+              <div class="admin__logo"><img class="admin__pic" src="img/amazon.png" alt=""></div>
+              <div class="admin__desc">
+                <div class="admin__title">Marketing Strategist</div>
+                <div class="admin__info"><span>Amazon</span><span>New York, USA</span></div>
+                <div class="admin__price"><span class="admin__money">$76</span> / Hr</div>
+              </div>
+            </a><a class="admin__box" href="#">
+              <div class="admin__logo"><img class="admin__pic" src="img/apple.png" alt=""></div>
+              <div class="admin__desc">
+                <div class="admin__title">Interaction Designer</div>
+                <div class="admin__info"><span>Apple</span><span>New York, USA</span></div>
+                <div class="admin__price"><span class="admin__money">$98</span> / Hr</div>
+              </div>
+            </a><a class="admin__box" href="#">
+              <div class="admin__logo"><img class="admin__pic" src="img/amazon.png" alt=""></div>
+              <div class="admin__desc">
+                <div class="admin__title">Marketing Strategist</div>
+                <div class="admin__info"><span>Twitch</span><span>New York, USA</span></div>
+                <div class="admin__price"><span class="admin__money">$100</span> / Hr</div>
+              </div>
+            </a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -6,8 +6,6 @@ import { NzMessageService } from 'ng-zorro-antd/message';
 import { EmployeeModel } from '../../models/EmployeeSignup.interface';
 import { ToastrService } from 'ngx-toastr';
 
-// Declared some variables for JavaScript - Mudasir Ali
-declare const themeSwitch: any;
 
 @Component({
   selector: 'app-employee-signup',

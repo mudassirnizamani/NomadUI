@@ -1,0 +1,280 @@
+<link
+  rel="apple-touch-icon"
+  sizes="180x180"
+  href="/assets/templates/square_template/img/apple-touch-icon.png"
+/>
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png" />
+<link rel="manifest" href="img/site.webmanifest" />
+<link rel="mask-icon" href="img/safari-pinned-tab.svg" color="#5bbad5" />
+<meta name="msapplication-TileColor" content="#da532c" />
+<meta name="theme-color" content="#ffffff" />
+<meta
+  name="description"
+  content="This is Signin Page of Nomad Dashboard Website"
+/>
+
+<div class="out">
+  <div class="login">
+    <div class="login__container">
+      <div class="login__wrap">
+        <div class="login">
+          <div class="login__container">
+            <div class="login__wrap">
+              <form
+                nz-form
+                class="login__form"
+                [formGroup]="SignupForm"
+                (ngSubmit)="onSubmit()"
+                #signupForm="ngForm"
+              >
+                <div class="login__body">
+                  <div class="login__title">Sign Up to your account</div>
+
+                  <nz-form-item class="SignupFormControl">
+                    <nz-form-control nzHasFeedback [nzErrorTip]="userNameError">
+                      <nz-input-group nzPrefixIcon="user">
+                        <input
+                          nz-input
+                          formControlName="userName"
+                          placeholder="User Name"
+                          type="text"
+                        />
+                      </nz-input-group>
+                    </nz-form-control>
+                  </nz-form-item>
+
+                  <nz-form-item class="SignupFormControl">
+                    <nz-form-control
+                      nzHasFeedback
+                      [nzErrorTip]="firstNameError"
+                    >
+                      <nz-input-group nzPrefixIcon="">
+                        <input
+                          nz-input
+                          formControlName="firstName"
+                          placeholder="First Name"
+                          type="text"
+                        />
+                      </nz-input-group>
+                    </nz-form-control>
+                  </nz-form-item>
+
+                  <nz-form-item class="SignupFormControl">
+                    <nz-form-control nzHasFeedback [nzErrorTip]="lastNameError">
+                      <nz-input-group nzPrefixIcon="">
+                        <input
+                          nz-input
+                          formControlName="lastName"
+                          placeholder="Last Name"
+                          type="text"
+                        />
+                      </nz-input-group>
+                    </nz-form-control>
+                  </nz-form-item>
+
+                  <nz-form-item class="SignupFormControl">
+                    <nz-form-control nzHasFeedback [nzErrorTip]="emailError">
+                      <nz-input-group nzPrefixIcon="mail">
+                        <input
+                          nz-input
+                          formControlName="email"
+                          placeholder="Email"
+                          type="email"
+                        />
+                      </nz-input-group>
+                    </nz-form-control>
+                  </nz-form-item>
+
+                  <nz-form-item class="SignupFormControl">
+                    <nz-form-control
+                      nzHasFeedback
+                      [nzErrorTip]="phoneNumberError"
+                    >
+                      <nz-input-group nzPrefixIcon="phone">
+                        <input
+                          nz-input
+                          formControlName="phoneNumber"
+                          placeholder="Phone Number - 924213"
+                          type="number"
+                        />
+                      </nz-input-group>
+                    </nz-form-control>
+                  </nz-form-item>
+
+                  <nz-form-item class="SignupFormControl">
+                    <nz-form-control nzHasFeedback [nzErrorTip]="passwordError">
+                      <nz-input-group
+                        nzPrefixIcon="lock"
+                        [nzSuffix]="passwordSuffix"
+                      >
+                        <input
+                          nz-input
+                          formControlName="password"
+                          placeholder="Password"
+                          [type]="passwordVisible ? 'text' : 'password'"
+                        />
+                      </nz-input-group>
+                    </nz-form-control>
+                  </nz-form-item>
+
+                  <nz-form-item class="SignupFormControl">
+                    <nz-form-control
+                      nzHasFeedback
+                      [nzErrorTip]="confirmPasswordError"
+                    >
+                      <nz-input-group
+                        nzPrefixIcon="lock"
+                        [nzSuffix]="passwordSuffix"
+                      >
+                        <input
+                          nz-input
+                          formControlName="confirmPassword"
+                          placeholder="Confirm Password"
+                          [type]="passwordVisible ? 'text' : 'password'"
+                        />
+                      </nz-input-group>
+                    </nz-form-control>
+                  </nz-form-item>
+
+                  <div *ngIf="!isLoading; else loadingBtn">
+                    <button
+                      nz-button
+                      nzType="primary"
+                      class="login__btn btn btn btn_blue"
+                      type="submit"
+                    >
+                      <i nz-icon nzType="user-add"></i> Register
+                    </button>
+                  </div>
+                </div>
+                <div class="login__foot flex flex-col">
+                  <a class="login__link" routerLink="/auth/signin"
+                    >Already have an Account? Sign In</a
+                  >
+                  <a class="login__link mt-2"
+                    >Or</a
+                  >
+                  <a class="login__link mt-2" routerLink="/auth/signup"
+                    >Signup As?</a
+                  >
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <label class="switch switch_theme"
+      ><input class="switch__input js-switch-theme" type="checkbox" /><span
+        class="switch__in"
+        ><span class="switch__box"></span
+        ><span class="switch__icon"
+          ><svg class="icon icon-moon">
+            <use
+              xlink:href="/assets/templates/square_template/img/sprite.svg#icon-moon"
+            ></use></svg><svg class="icon icon-sun">
+            <use
+              xlink:href="/assets/templates/square_template/img/sprite.svg#icon-sun"
+            ></use></svg></span></span
+    ></label>
+  </div>
+</div>
+
+<!-- Validation Templates -->
+<ng-template #emailError>
+  <ng-container *ngIf="Email.hasError('email')">
+    The input is not valid Email
+  </ng-container>
+  <ng-container *ngIf="Email.hasError('required')">
+    Email is required
+  </ng-container>
+</ng-template>
+
+<ng-template #userNameError>
+  <ng-container *ngIf="UserName.hasError('required')">
+    User Name is required
+  </ng-container>
+  <ng-container *ngIf="UserName.errors.minlength">
+    Minimum 2 Characters are required
+  </ng-container>
+
+  <ng-container *ngIf="UserName.errors.maxlength">
+    Maximum 30 Characters are required
+  </ng-container>
+</ng-template>
+
+<ng-template #firstNameError>
+  <ng-container *ngIf="FirstName.hasError('required')">
+    First Name is required
+  </ng-container>
+  <ng-container *ngIf="FirstName.errors.minlength">
+    Minimum 2 Characters are required
+  </ng-container>
+
+  <ng-container *ngIf="FirstName.errors.maxlength">
+    Maximum 20 Characters are required
+  </ng-container>
+</ng-template>
+
+<ng-template #lastNameError>
+  <ng-container *ngIf="LastName.hasError('required')">
+    Last Name is required
+  </ng-container>
+  <ng-container *ngIf="LastName.errors.minlength">
+    Minimum 2 Characters are required
+  </ng-container>
+
+  <ng-container *ngIf="LastName.errors.maxlength">
+    Maximum 20 Characters are required
+  </ng-container>
+</ng-template>
+
+<ng-template #phoneNumberError>
+  <ng-container *ngIf="PhoneNumber.hasError('required')">
+    Phone Number is required
+  </ng-container>
+  <ng-container *ngIf="PhoneNumber.errors.pattern">
+    Only Numbers are allowed
+  </ng-container>
+</ng-template>
+
+<ng-template #passwordError>
+  <ng-container *ngIf="Password.hasError('required')">
+    Enter Password
+  </ng-container>
+  <ng-container *ngIf="Password.errors.minlength">
+    Password should be 8 Characters Long
+  </ng-container>
+</ng-template>
+
+<ng-template #confirmPasswordError>
+  <ng-container *ngIf="ConfirmPassword.hasError('required')">
+    Confirm Password
+  </ng-container>
+  <ng-container *ngIf="ConfirmPassword.hasError('confirm')">
+    Password don't match
+  </ng-container>
+</ng-template>
+
+<!-- Other Templates -->
+
+<ng-template #passwordSuffix>
+  <i
+    nz-icon
+    [nzType]="passwordVisible ? 'eye-invisible' : 'eye'"
+    (click)="passwordVisible = !passwordVisible"
+  ></i>
+</ng-template>
+
+<ng-template #loadingBtn>
+  <button
+    nz-button
+    nzType="primary"
+    class="login__btn btn btn btn_blue"
+    type="submit"
+    nzLoading
+  >
+    <i nz-icon nzType="user-add"></i> Register
+  </button>
+</ng-template>

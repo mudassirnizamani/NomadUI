@@ -22,6 +22,8 @@ import { AdminModule } from './admin/admin.module';
 import { EmployeeModule } from './employee/employee.module';
 import { ClientModule } from './client/client.module';
 import { SharedModule } from './shared/shared.module';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './reducers';
 
 registerLocaleData(en);
 
@@ -58,6 +60,9 @@ const EmployeeModules = [];
     }),
     NzMessageModule,
     CustomModules,
+    StoreModule.forRoot(reducers, {
+      metaReducers
+    }),
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent],

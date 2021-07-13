@@ -30,7 +30,7 @@ export class UsersComponent implements OnInit {
           this.message.error(res.description);
         }
       },
-      (res: any) => {
+      (error: any) => {
         this.isLoading = false;
         this.toastr.error("Server Didn't Respond", 'Plz try later');
       }

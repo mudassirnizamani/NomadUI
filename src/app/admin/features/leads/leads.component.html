@@ -1,1 +1,49 @@
-<p>leads works!</p>
+  
+  <div class="sorting1">
+      <div class="sorting1__options">
+        <div class="dropdown js-dropdown"><a class="dropdown__head js-dropdown-head" href="#">
+            <div class="dropdown__text">Sort by:</div>
+            <div class="dropdown__category">Default</div>
+          </a>
+          <div class="dropdown__body js-dropdown-body"><label class="checkbox checkbox_sm checkbox_green"><input class="checkbox__input" type="checkbox" /><span class="checkbox__in"><span class="checkbox__tick"></span><span class="checkbox__text">Project Name</span></span></label><label class="checkbox checkbox_sm checkbox_green"><input class="checkbox__input" type="checkbox" checked="checked" /><span class="checkbox__in"><span class="checkbox__tick"></span><span class="checkbox__text">Newest Project</span></span></label><label class="checkbox checkbox_sm checkbox_green"><input class="checkbox__input" type="checkbox" checked="checked" /><span class="checkbox__in"><span class="checkbox__tick"></span><span class="checkbox__text">Due Date</span></span></label><label class="checkbox checkbox_sm checkbox_green"><input class="checkbox__input" type="checkbox" /><span class="checkbox__in"><span class="checkbox__tick"></span><span class="checkbox__text">Project Type</span></span></label></div>
+        </div><a class="sorting1__filters" href="#"><svg class="icon icon-filters">
+            <use xlink:href="/assets/templates/square_template/img/sprite.svg#icon-filters"></use>
+          </svg></a><button class="sorting1__btn btn btn_blue" (click)="showModal()"><svg class="icon icon-plus">
+            <use xlink:href="/assets/templates/square_template/img/sprite.svg#icon-plus"></use>
+          </svg><span class="btn__text">New Lead</span></button>
+      </div>
+  </div>
+<div class="text-2xl font-semibold font-sans text-black w-100 bg-white p-3 pl-4 mt-10 rounded-lg mb-7">Leads List</div>
+
+  <div class="products">
+    <div class="products__container">
+      <div class="products__body">
+        {{allLeads}}
+      </div>
+    </div>
+  </div>
+
+
+  <nz-modal
+    [(nzVisible)]="isVisible"
+    [nzTitle]="modalTitle"
+    [nzContent]="modalContent"
+    [nzFooter]="modalFooter"
+    (nzOnCancel)="handleCancel()"
+  >
+    <ng-template #modalTitle>Add New Lead</ng-template>
+
+    <ng-template #modalContent>
+      <p>Modal Content</p>
+      <p>Modal Content</p>
+      <p>Modal Content</p>
+      <p>Modal Content</p>
+      <p>Modal Content</p>
+    </ng-template>
+
+    <ng-template #modalFooter>
+      <span>Modal Footer:</span>
+      <button nz-button nzType="default" (click)="handleCancel()">Custom Callback</button>
+      <button nz-button nzType="primary" (click)="handleOk()" [nzLoading]="isConfirmLoading">Custom Submit</button>
+    </ng-template>
+  </nz-modal>

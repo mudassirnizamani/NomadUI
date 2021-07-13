@@ -10,7 +10,7 @@ import { UserService } from 'src/app/core/services/user/user.service';
   styleUrls: ['./index.component.scss'],
 })
 export class IndexComponent implements OnInit {
-  userData: any;
+  user: UserModel;
   isLoading: boolean = false;
 
   constructor(
@@ -22,7 +22,7 @@ export class IndexComponent implements OnInit {
     this.userService.getAuthenticatedUser().subscribe(
       (res: any) => {
         if (res.succeeded) {
-          this.userData = res.user;
+          this.user = res.user;
         } else if (!res.succeeded && res.code == 'ServerError') {
           this.toastr.error(res.description);
         }

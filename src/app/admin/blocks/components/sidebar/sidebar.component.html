@@ -45,6 +45,15 @@
       >
       <a
         class="sidebar2__item"
+        routerLinkActive="active"
+        routerLink="/admin/projects/"
+        ><svg class="icon icon-project">
+          <use
+            xlink:href="/assets/templates/square_template/img/sprite.svg#icon-project"
+          ></use></svg>Projects</a
+      >
+      <a
+        class="sidebar2__item"
         routerLink="/admin/todos/"
         routerLinkActive="active"
         ><i class="icon text-gray-400 fas fa-th-list"></i> Todos</a
@@ -52,6 +61,16 @@
     </div>
     <div class="sidebar2__category mt-2">Account</div>
     <div class="sidebar2__nav">
+      <a [routerLink]="['/admin/profile/']" routerLinkActive="active" class="sidebar2__item"
+        ><i
+          nz-icon
+          nzType="user"
+          nzTheme="outline"
+          class="icon text-gray-400"
+        ></i>
+        Profile</a
+      >
+      
       <a
         class="sidebar2__item"
         routerLinkActive="active"
@@ -60,6 +79,15 @@
           <use
             xlink:href="/assets/templates/square_template/img/sprite.svg#icon-bell"
           ></use></svg>Notifications</a
+      >
+      <a
+        class="sidebar2__item"
+        routerLinkActive="active"
+        routerLink="/admin/settings/"
+        ><svg class="icon icon-settings">
+          <use
+            xlink:href="/assets/templates/square_template/img/sprite.svg#icon-settings"
+          ></use></svg>Settings</a
       >
       <a (click)="signout()" class="sidebar2__item"
         ><i class="icon text-gray-400 fas fa-sign-out-alt"></i> Signout</a

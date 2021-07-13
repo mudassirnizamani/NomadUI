@@ -42,11 +42,18 @@
       alt=""
   /></a>
   <nz-dropdown-menu #menu="nzDropdownMenu">
-    <ul nz-menu>
+    <ul nz-menu class="w-36">
       <li nz-menu-item class="flex justify-between">
-        Profile<i class="fas text-blue-500 fa-user-circle"></i>
+        <a href="">Profile<i class="fas text-blue-500 fa-user-circle"></i></a>
       </li>
-      <li nz-menu-item>2nd menu item length</li>
+      <li nz-menu-item class="flex justify-between">
+        <a routerLink="/admin/notifications/"
+          >Notifications
+          <svg class="icon icon-bell">
+            <use
+              xlink:href="/assets/templates/square_template/img/sprite.svg#icon-bell"
+            ></use></svg></a>
+      </li>
       <li nz-menu-item (click)="signout()" class="flex justify-between">
         Signout<i class="fas text-blue-500 fa-sign-out-alt"></i>
       </li>

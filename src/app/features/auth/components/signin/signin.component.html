@@ -60,8 +60,6 @@
                     </nz-form-control>
                   </nz-form-item>
 
-                  
-
                   <div *ngIf="!isLoading; else loadingBtn">
                     <button
                       nz-button
@@ -69,7 +67,7 @@
                       class="login__btn btn btn btn_blue"
                       type="submit"
                     >
-                      <i nz-icon nzType="user-add"></i> Sign In
+                      <i class="fas fa-sign-in-alt mr-1"></i> Signin
                     </button>
                   </div>
                 </div>
@@ -118,6 +116,6 @@
     type="submit"
     nzLoading
   >
-    <i nz-icon nzType="user-add"></i> Register
+    <i class="fas fa-sign-in-alt mr-1"></i> Signin
   </button>
 </ng-template>

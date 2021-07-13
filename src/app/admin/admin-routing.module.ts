@@ -41,6 +41,27 @@ const routes: Routes = [
           ),
       },
       {
+        path: 'projects',
+        loadChildren: () =>
+          import('./features/projects/projects.module').then(
+            (module) => module.ProjectsModule
+          ),
+      },
+      {
+        path: 'profile',
+        loadChildren: () =>
+          import('./features/profile/profile.module').then(
+            (module) => module.ProfileModule
+          ),
+      },
+      {
+        path: 'settings',
+        loadChildren: () =>
+          import('./features/settings/settings.module').then(
+            (module) => module.SettingsModule
+          ),
+      },
+      {
         path: 'notifications',
         loadChildren: () =>
           import('./features/notifications/notifications.module').then(

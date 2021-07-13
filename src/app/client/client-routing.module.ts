@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { IndexLayoutComponent } from './blocks/layouts/index-layout/index-layout.component';
-import { IndexComponent } from './features/index/components/index/index.component';
+import { IndexComponent } from './features/index/index.component';
 
 const routes: Routes = [
   {
@@ -11,6 +11,13 @@ const routes: Routes = [
       {
         path: '',
         component: IndexComponent,
+      },
+      {
+        path: 'profile',
+        loadChildren: () =>
+          import('./features/profile/profile.module').then(
+            (module) => module.ProfileModule
+          ),
       },
     ],
   },

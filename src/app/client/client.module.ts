@@ -8,7 +8,6 @@ import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [],
-
   imports: [ClientRoutingModule, BlocksModule, FeaturesModule, SharedModule],
 })
 export class ClientModule {}

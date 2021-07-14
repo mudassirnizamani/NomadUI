@@ -23,4 +23,4 @@ import { UsersModule } from './users/users.module';
     ProfileModule,
   ],
 })
-export class FeaturesModule {}
+export class AdminFeaturesModule {}

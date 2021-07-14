@@ -3,32 +3,51 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NZ_I18N } from 'ng-zorro-antd/i18n';
-import { en_US } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+// Ant Design Modules
+import { NZ_I18N } from 'ng-zorro-antd/i18n';
+import { en_US } from 'ng-zorro-antd/i18n';
+
+// Toast Messages Modules
 import { NzMessageModule } from 'ng-zorro-antd/message';
 import { ToastrModule } from 'ngx-toastr';
 
-// Importing Custom Modules - Mudasir Ali
+// Custom Modules - Mudasir Ali
 import { CoreModule } from './core/core.module';
 import { FeaturesModule } from './features/features.module';
 import { BlocksModule } from './blocks/blocks.module';
-import { AdminModule } from './admin/admin.module';
-import { EmployeeModule } from './employee/employee.module';
-import { ClientModule } from './client/client.module';
 import { SharedModule } from './shared/shared.module';
+import { AdminModule } from './admin/admin.module';
+import { ClientModule } from './client/client.module';
+import { EmployeeModule } from './employee/employee.module';
+
+// Ngrx Modules
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers';
+
+// Admin Modules
+import { AdminBlocksModule } from './admin/blocks/blocks.module';
+import { AdminFeaturesModule } from './admin/features/features.module';
+import { AdminSharedModule } from './admin/shared/shared.module';
+
+// Client Modules
+import { ClientBlocksModule } from './client/blocks/blocks.module';
+import { ClientFeaturesModule } from './client/features/features.module';
+import { ClientSharedModule } from './client/shared/shared.module';
+
+// Employee Modules
+import { EmployeeBlocksModule } from './employee/blocks/blocks.module';
+import { EmployeeSharedModule } from './employee/shared/shared.module';
+import { EmployeeFeaturesModule } from './employee/features/features.module';
 
 registerLocaleData(en);
 
 // Modules Variables - Mudasir Ali
-
 const CustomModules = [
   CoreModule,
   BlocksModule,
@@ -39,11 +58,23 @@ const CustomModules = [
   SharedModule,
 ];
 
-const AdminModules = [];
+const AdminModules = [
+  AdminBlocksModule,
+  AdminFeaturesModule,
+  AdminSharedModule,
+];
 
-const ClientModules = [];
+const ClientModules = [
+  ClientBlocksModule,
+  ClientFeaturesModule,
+  ClientSharedModule,
+];
 
-const EmployeeModules = [];
+const EmployeeModules = [
+  EmployeeBlocksModule,
+  EmployeeSharedModule,
+  EmployeeFeaturesModule,
+];
 
 @NgModule({
   declarations: [AppComponent],
@@ -59,10 +90,13 @@ const EmployeeModules = [];
       progressBar: true,
     }),
     NzMessageModule,
-    CustomModules,
     StoreModule.forRoot(reducers, {
-      metaReducers
+      metaReducers,
     }),
+    CustomModules,
+    AdminModules,
+    ClientModules,
+    EmployeeModules,
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent],

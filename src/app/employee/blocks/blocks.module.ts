@@ -14,4 +14,4 @@ import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
   declarations: [IndexLayoutComponent, SidebarComponent, TopbarComponent],
   imports: [RouterModule, SharedModule, NzDropDownModule],
 })
-export class BlocksModule {}
+export class EmployeeBlocksModule {}

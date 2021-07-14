@@ -15,4 +15,4 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
   declarations: [AdminIndexLayoutComponent, SidebarComponent, TopbarComponent],
   imports: [RouterModule, SharedModule, NzDropDownModule, NzIconModule],
 })
-export class BlocksModule {}
+export class AdminBlocksModule {}

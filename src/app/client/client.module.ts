@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 
 // Importing Custom Modules - Mudasir Ali
-import { BlocksModule } from './blocks/blocks.module';
+import { ClientBlocksModule } from './blocks/blocks.module';
 import { ClientRoutingModule } from './client-routing.module';
-import { FeaturesModule } from './features/features.module';
-import { SharedModule } from './shared/shared.module';
+import { ClientFeaturesModule } from './features/features.module';
+import { ClientSharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [],
-  imports: [ClientRoutingModule, BlocksModule, FeaturesModule, SharedModule],
+  imports: [ClientRoutingModule, ClientBlocksModule, ClientFeaturesModule, ClientSharedModule],
 })
 export class ClientModule {}

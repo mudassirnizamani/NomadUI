@@ -7,4 +7,4 @@ import { ProfileModule } from './profile/profile.module';
   declarations: [],
   imports: [CommonModule, IndexModule, ProfileModule],
 })
-export class FeaturesModule {}
+export class ClientFeaturesModule {}

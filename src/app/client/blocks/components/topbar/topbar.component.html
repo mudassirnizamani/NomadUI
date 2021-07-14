@@ -21,8 +21,8 @@
         ></use>
       </svg></button
     ><a
-      class="header2__link header2__link_bell active"
-      href="square-notifications.html"
+      class="header2__link header2__link_bell"
+      routerLink="/client/notifications/"
       ><svg class="icon icon-bell">
         <use
           xlink:href="/assets/templates/square_template/img/sprite.svg#icon-bell"
@@ -40,10 +40,28 @@
       alt=""
   /></a>
   <nz-dropdown-menu #menu="nzDropdownMenu">
-    <ul nz-menu>
-      <li nz-menu-item>1st menu item length</li>
-      <li nz-menu-item>2nd menu item length</li>
-      <li nz-menu-item (click)="signout()"><i class="fas fa-sign-out-alt"></i> Signout</li>
+    <ul nz-menu class="w-36">
+      <li nz-menu-item class="flex w-full justify-between">
+        <a routerLink="/client/notifications/">Notifications</a>
+        <a routerLink="/client/notifications/">
+          <i class="far fa-bell text-blue-500"></i
+        ></a>
+      </li>
+      <li nz-menu-item class="flex w-full justify-between">
+        <a routerLink="/client/profile/">Profile</a
+        ><a routerLink="/client/profile/"
+          ><i class="fas text-blue-500 fa-user-circle"></i
+        ></a>
+      </li>
+      <li nz-menu-item class="flex w-full justify-between">
+        <a routerLink="/client/settings/">Settings</a>
+        <a routerLink="/client/settings/">
+          <i class="fas fa-cog text-blue-500"></i
+        ></a>
+      </li>
+      <li nz-menu-item (click)="signout()" class="flex w-full justify-between">
+        Signout<i class="fas text-blue-500 fa-sign-out-alt"></i>
+      </li>
     </ul>
   </nz-dropdown-menu>
   <div class="header2__bg js-header2-bg"></div>

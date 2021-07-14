@@ -28,7 +28,8 @@
       ><svg class="icon icon-bell">
         <use
           xlink:href="/assets/templates/square_template/img/sprite.svg#icon-bell"
-        ></use></svg></a>
+        ></use></svg
+    ></a>
   </div>
   <a
     class="header2__profile"
@@ -43,18 +44,25 @@
   /></a>
   <nz-dropdown-menu #menu="nzDropdownMenu">
     <ul nz-menu class="w-36">
-      <li nz-menu-item class="flex justify-between">
-        <a href="">Profile<i class="fas text-blue-500 fa-user-circle"></i></a>
+      <li nz-menu-item class="flex w-full justify-between">
+        <a routerLink="/admin/notifications/">Notifications</a>
+        <a routerLink="/admin/notifications/">
+          <i class="far fa-bell text-blue-500"></i
+        ></a>
       </li>
-      <li nz-menu-item class="flex justify-between">
-        <a routerLink="/admin/notifications/"
-          >Notifications
-          <svg class="icon icon-bell">
-            <use
-              xlink:href="/assets/templates/square_template/img/sprite.svg#icon-bell"
-            ></use></svg></a>
+      <li nz-menu-item class="flex w-full justify-between">
+        <a routerLink="/admin/profile/">Profile</a
+        ><a routerLink="/admin/profile/"
+          ><i class="fas text-blue-500 fa-user-circle"></i
+        ></a>
       </li>
-      <li nz-menu-item (click)="signout()" class="flex justify-between">
+      <li nz-menu-item class="flex w-full justify-between">
+        <a routerLink="/admin/settings/">Settings</a>
+        <a routerLink="/admin/settings/">
+          <i class="fas fa-cog text-blue-500"></i
+        ></a>
+      </li>
+      <li nz-menu-item (click)="signout()" class="flex w-full justify-between">
         Signout<i class="fas text-blue-500 fa-sign-out-alt"></i>
       </li>
     </ul>

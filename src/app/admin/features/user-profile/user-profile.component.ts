@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { UserModel } from 'src/app/core/models/UserModel.interface';
+import { IUser } from 'src/app/core/models/IUser.interface';
 
 // Importing Services - Mudasir Ali
 import { UserService } from 'src/app/core/services/user/user.service';
@@ -16,7 +16,7 @@ import { ToastrService } from 'ngx-toastr';
 export class UserProfileComponent implements OnInit {
   userName: string;
   notFound: boolean = false;
-  user: UserModel;
+  user: IUser;
   EditForm: FormGroup;
   isLoading: boolean = true;
 

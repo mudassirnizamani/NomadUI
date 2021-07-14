@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
-import { UserModel } from 'src/app/core/models/UserModel.interface';
+import { IUser } from 'src/app/core/models/IUser.interface';
 import { UserService } from 'src/app/core/services/user/user.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { UserService } from 'src/app/core/services/user/user.service';
   styleUrls: ['./index.component.scss'],
 })
 export class IndexComponent implements OnInit {
-  user: UserModel;
+  user: IUser;
   isLoading: boolean = false;
 
   constructor(

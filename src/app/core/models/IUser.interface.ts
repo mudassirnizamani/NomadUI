@@ -1,4 +1,4 @@
-export interface UserModel {
+export interface IUser {
   firstName: string;
   lastName: string;
   accessFailedCount: number;

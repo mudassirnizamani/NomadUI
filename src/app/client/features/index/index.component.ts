@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
-import { UserModel } from 'src/app/core/models/UserModel.interface';
+import { IUser } from 'src/app/core/models/IUser.interface';
 import { UserService } from 'src/app/core/services/user/user.service';
 import { ToastrService } from 'ngx-toastr';
 
@@ -13,7 +13,7 @@ import { ToastrService } from 'ngx-toastr';
 export class IndexComponent implements OnInit {
   datea: Date = new Date();
   date: any;
-  user: UserModel;
+  user: IUser;
   isLoading: boolean = false;
 
   constructor(

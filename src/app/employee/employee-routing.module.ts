@@ -12,6 +12,27 @@ const routes: Routes = [
         path: '',
         component: IndexComponent,
       },
+      {
+        path: 'profile',
+        loadChildren: () =>
+          import('./features/profile/profile.module').then(
+            (module) => module.ProfileModule
+          ),
+      },
+      {
+        path: 'settings',
+        loadChildren: () =>
+          import('./features/settings/settings.module').then(
+            (module) => module.SettingsModule
+          ),
+      },
+      {
+        path: 'notifications',
+        loadChildren: () =>
+          import('./features/notifications/notifications.module').then(
+            (module) => module.NotificationsModule
+          ),
+      },
     ],
   },
 ];

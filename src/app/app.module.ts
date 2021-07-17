@@ -28,7 +28,6 @@ import { EmployeeModule } from './employee/employee.module';
 
 // Ngrx Modules
 import { StoreModule } from '@ngrx/store';
-import { reducers, metaReducers } from './reducers';
 
 // Admin Modules
 import { AdminBlocksModule } from './admin/blocks/blocks.module';
@@ -44,6 +43,12 @@ import { ClientSharedModule } from './client/shared/shared.module';
 import { EmployeeBlocksModule } from './employee/blocks/blocks.module';
 import { EmployeeSharedModule } from './employee/shared/shared.module';
 import { EmployeeFeaturesModule } from './employee/features/features.module';
+
+// Reducers
+import { reducers, metaReducers } from './reducers';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { EffectsModule } from '@ngrx/effects';
 
 registerLocaleData(en);
 
@@ -90,13 +95,16 @@ const EmployeeModules = [
       progressBar: true,
     }),
     NzMessageModule,
-    StoreModule.forRoot(reducers, {
-      metaReducers,
-    }),
+    StoreModule.forRoot({}),
     CustomModules,
     AdminModules,
     ClientModules,
     EmployeeModules,
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production,
+    }),
+    EffectsModule.forRoot([]),
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent],

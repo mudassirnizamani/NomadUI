@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { ToastrService } from 'ngx-toastr';
-import { LeadsService } from './services/leads.service';
+import { LeadService } from 'src/app/core/services/lead/lead.service';
 
 @Component({
   selector: 'app-leads',
@@ -16,7 +16,7 @@ export class LeadsComponent implements OnInit {
 
 
   constructor(
-    private leadsService: LeadsService,
+    private leadsService: LeadService,
     private message: NzMessageService,
     private toastr: ToastrService
   ) {}

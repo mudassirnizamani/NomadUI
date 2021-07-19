@@ -1,1 +1,37 @@
-<p>profile works!</p>
+<div class="page2__container p-0">
+  <div class="profile profile_user">
+    <div
+      class="profile__bg"
+      style="
+        background-image: url('/assets/templates/square_template/img/bg-profile.jpg');
+      "
+    ></div>
+    <div class="profile__user">
+      <div class="profile__ava">
+        <img
+          class="profile__pic"
+          src="{{ userData.profilePic }}"
+          alt="user-img"
+        />
+      </div>
+      <div class="profile__details">
+        <span class="profile__title title"
+          >{{ userData.firstName }} {{ userData.lastName }}</span
+        ><span class="profile__login">{{ userData.email }}</span>
+      </div>
+    </div>
+  </div>
+  <div class="page2__row">
+    <div class="page2__col page2__col_w35">
+      <app-details
+        [active]="userData.isActive"
+        [phone]="userData.phoneNumberConfirmed"
+        [email]="userData.emailConfirmed"
+      ></app-details>
+    </div>
+
+    <div class="page2__col page2__col_w65">
+      <app-profile-details [userData]="userData"></app-profile-details>
+    </div>
+  </div>
+</div>

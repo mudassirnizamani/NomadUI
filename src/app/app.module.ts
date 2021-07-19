@@ -28,6 +28,8 @@ import { EmployeeModule } from './employee/employee.module';
 
 // Ngrx Modules
 import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
 
 // Admin Modules
 import { AdminBlocksModule } from './admin/blocks/blocks.module';
@@ -45,10 +47,11 @@ import { EmployeeSharedModule } from './employee/shared/shared.module';
 import { EmployeeFeaturesModule } from './employee/features/features.module';
 
 // Reducers
-import { reducers, metaReducers } from './reducers';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
-import { EffectsModule } from '@ngrx/effects';
+import * as fromUser from './store/reducers/user/user.reducer';
+
+// Effects
+import { UserEffects } from './store/effects/user/user.effects';
 
 registerLocaleData(en);
 
@@ -95,7 +98,7 @@ const EmployeeModules = [
       progressBar: true,
     }),
     NzMessageModule,
-    StoreModule.forRoot({}),
+    StoreModule.forRoot({ user: fromUser.reducer }),
     CustomModules,
     AdminModules,
     ClientModules,
@@ -104,7 +107,7 @@ const EmployeeModules = [
       maxAge: 25,
       logOnly: environment.production,
     }),
-    EffectsModule.forRoot([]),
+    EffectsModule.forRoot([UserEffects]),
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent],

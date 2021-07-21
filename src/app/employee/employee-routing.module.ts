@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { IndexLayoutComponent } from './blocks/layouts/index-layout/index-layout.component';
-import { IndexComponent } from './features/index/components/index/index.component';
+import { IndexComponent } from './features/index/index.component';
 
 const routes: Routes = [
   {

@@ -1,1 +1,156 @@
-<p>settings works!</p>
+<div class="page2__container p-0">
+  <div class="page2__row">
+    <div class="page2__col page2__col_w35">
+      <div class="card1">
+        <div class="card1__head">
+          <div class="card1__category h5-responsive">Password</div>
+        </div>
+        <div class="card1__body">
+          <div class="card1__list"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page2__col page2__col_w65">
+      <div class="card1">
+        <div class="card1__head">
+          <div class="card1__category h5-responsive">Edit Profile</div>
+        </div>
+        <div class="card1__body">
+          <div class="card1__list">
+            <form
+              nz-form
+              class="login__form"
+              [formGroup]="ProfileForm"
+              (ngSubmit)="onProfileSubmit()"
+              #signupForm="ngForm"
+            >
+              <nz-form-item class="SignupFormControl">
+                <nz-form-control>
+                  <label for="" class="mb-3">UserName</label>
+                  <input
+                    nz-input
+                    [disabled]="true"
+                    [value]="user.userName"
+                    formControlName="userName"
+                    type="text"
+                  />
+                </nz-form-control>
+              </nz-form-item>
+
+              <nz-form-item class="SignupFormControl">
+                <nz-form-control nzHasFeedback [nzErrorTip]="firstNameError">
+                  <label for="" class="mb-3">FirstName</label>
+                  <input
+                    nz-input
+                    [value]="user.firstName"
+                    formControlName="firstName"
+                    type="text"
+                  />
+                </nz-form-control>
+              </nz-form-item>
+
+              <nz-form-item class="SignupFormControl">
+                <nz-form-control nzHasFeedback [nzErrorTip]="lastNameError">
+                  <label for="" class="mb-3">LastName</label>
+                  <input
+                    nz-input
+                    [value]="user.lastName"
+                    formControlName="lastName"
+                    type="text"
+                  />
+                </nz-form-control>
+              </nz-form-item>
+
+              <nz-form-item class="SignupFormControl">
+                <nz-form-control>
+                  <label for="" class="mb-3">Email</label>
+                  <input
+                    nz-input
+                    [value]="user.email"
+                    [disabled]="true"
+                    formControlName="email"
+                    type="text"
+                  />
+                </nz-form-control>
+              </nz-form-item>
+
+              <nz-form-item class="SignupFormControl">
+                <nz-form-control nzHasFeedback [nzErrorTip]="phoneNumberError">
+                  <label for="" class="mb-3">PhoneNumber</label>
+                  <input
+                    nz-input
+                    [value]="user.phoneNumber"
+                    formControlName="phoneNumber"
+                    type="text"
+                  />
+                </nz-form-control>
+              </nz-form-item>
+
+              <div class="btns flex">
+                <button nz-button type="submit" nzType="primary">Update</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Validation Templates -->
+
+<ng-template #firstNameError>
+  <ng-container *ngIf="FirstName.hasError('required')">
+    First Name is required
+  </ng-container>
+  <ng-container *ngIf="FirstName.errors.minlength">
+    Minimum 2 Characters are required
+  </ng-container>
+
+  <ng-container *ngIf="FirstName.errors.maxlength">
+    Maximum 20 Characters are required
+  </ng-container>
+</ng-template>
+
+<ng-template #lastNameError>
+  <ng-container *ngIf="LastName.hasError('required')">
+    Last Name is required
+  </ng-container>
+  <ng-container *ngIf="LastName.errors.minlength">
+    Minimum 2 Characters are required
+  </ng-container>
+
+  <ng-container *ngIf="LastName.errors.maxlength">
+    Maximum 20 Characters are required
+  </ng-container>
+</ng-template>
+
+<ng-template #phoneNumberError>
+  <ng-container *ngIf="PhoneNumber.hasError('required')">
+    Phone Number is required
+  </ng-container>
+  <ng-container *ngIf="PhoneNumber.errors.pattern">
+    Only Numbers are allowed
+  </ng-container>
+</ng-template>
+
+<ng-template #passwordError>
+  <ng-container *ngIf="Password.hasError('required')">
+    Enter Password
+  </ng-container>
+  <ng-container *ngIf="Password.errors.minlength">
+    Password should be 8 Characters Long
+  </ng-container>
+</ng-template>
+
+<ng-template #confirmPasswordError>
+  <ng-container *ngIf="ConfirmPassword.hasError('required')">
+    Confirm Password
+  </ng-container>
+  <ng-container *ngIf="ConfirmPassword.hasError('confirm')">
+    Password don't match
+  </ng-container>
+</ng-template>
+
+<!-- Other Templates -->

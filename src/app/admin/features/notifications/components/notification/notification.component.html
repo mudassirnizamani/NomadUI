@@ -1,0 +1,26 @@
+<div class="notifications__item">
+  <div class="ava">
+    <img class="ava__pic" [src]="notification.userProfile" alt="" />
+  </div>
+  <div class="notifications__details">
+    <div class="notifications__text">
+      {{ notification.text }}
+    </div>
+    <div class="notifications__time">{{ notification.createdAt }}</div>
+  </div>
+  <div class="notifications__icon notifications__icon_like">
+    <svg class="icon icon-like">
+      <use xlink:href="img/sprite.svg#icon-like"></use>
+    </svg>
+  </div>
+  <div class="options2 js-options">
+    <button class="options2__btn js-options-btn">
+      <svg class="icon icon-dots">
+        <use xlink:href="img/sprite.svg#icon-dots"></use>
+      </svg>
+    </button>
+    <div class="options2__dropdown js-options-dropdown">
+      <a class="options2__link" href="#">Remove Notifications</a>
+    </div>
+  </div>
+</div>

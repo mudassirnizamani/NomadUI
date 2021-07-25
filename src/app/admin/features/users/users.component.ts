@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { select, Store } from '@ngrx/store';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { ToastrService } from 'ngx-toastr';
+import { IUser } from 'src/app/core/models/IUser.interface';
 import { UserService } from 'src/app/core/services/user/user.service';
+import { getAllUsers } from 'src/app/store/actions/users/users.actions';
+import { UsersState } from 'src/app/store/reducers/users/users.reducer';
+import { usersSelector } from 'src/app/store/selectors/users/users.selectors';
 
 @Component({
   selector: 'app-users',
@@ -10,30 +15,21 @@ import { UserService } from 'src/app/core/services/user/user.service';
 })
 export class UsersComponent implements OnInit {
   isLoading: boolean = true;
-  users: any;
+  users: IUser[];
+  users$ = this.store.pipe(select(usersSelector))
 
   constructor(
     private userService: UserService,
     private message: NzMessageService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private store: Store<UsersState>
   ) {}
 
   ngOnInit(): void {
-    this.userService.getAllUsers().subscribe(
-      (res: any) => {
-        if (res.succeeded) {
-          this.users = res.users;
-          this.isLoading = false;
-          this.message.success('Data Succueesfully fetched');
-        } else if (!res.succeeded && res.code == 'ServerError') {
-          this.isLoading = false;
-          this.message.error(res.description);
-        }
-      },
-      (error: any) => {
-        this.isLoading = false;
-        this.toastr.error("Server Didn't Respond", 'Plz try later');
-      }
-    );
+    this.store.dispatch(getAllUsers())
+    this.users$.subscribe((data: IUser[]) => {
+      this.users = data;
+      this.isLoading = false
+    })
   }
 }

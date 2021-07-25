@@ -8,6 +8,7 @@ import en from '@angular/common/locales/en';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { environment } from '../environments/environment';
 
 // Ant Design Modules
 import { NZ_I18N } from 'ng-zorro-antd/i18n';
@@ -47,11 +48,14 @@ import { EmployeeSharedModule } from './employee/shared/shared.module';
 import { EmployeeFeaturesModule } from './employee/features/features.module';
 
 // Reducers
-import { environment } from '../environments/environment';
 import * as fromUser from './store/reducers/user/user.reducer';
+import * as fromUsers from './store/reducers/users/users.reducer';
+import * as fromLeads from './store/reducers/leads/leads.reducer';
+import * as fromNotificaionts from './store/reducers/notifications/notifcations.reducer'
 
 // Effects
 import { UserEffects } from './store/effects/user/user.effects';
+import { usersEffects } from './store/effects/users/users';
 
 registerLocaleData(en);
 
@@ -98,7 +102,12 @@ const EmployeeModules = [
       progressBar: true,
     }),
     NzMessageModule,
-    StoreModule.forRoot({ user: fromUser.reducer }),
+    StoreModule.forRoot({
+      user: fromUser.reducer,
+      users: fromUsers.reducer,
+      leads: fromLeads.reducer,
+      notifications: fromNotificaionts.reducer
+    }),
     CustomModules,
     AdminModules,
     ClientModules,
@@ -107,7 +116,7 @@ const EmployeeModules = [
       maxAge: 25,
       logOnly: environment.production,
     }),
-    EffectsModule.forRoot([UserEffects]),
+    EffectsModule.forRoot([UserEffects, usersEffects]),
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent],

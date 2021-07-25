@@ -30,9 +30,27 @@ export class UserProfileComponent implements OnInit {
   ngOnInit(): void {
     this.userName = this.route.snapshot.params['username'];
 
+    this.userService.gerUserByUserName(this.userName).subscribe(
+      (res: any) => {
+        if (res.succeeded) {
+          this.user = res.user;
+          this.isLoading = false;
+          this.message.success('Data fetched Successfully');
+        } else if (!res.succeeded && res.code == 'UsernameNotFound') {
+          this.isLoading = false;
+          this.notFound = true;
+          this.message.error(res.description);
+        }
+      },
+      (error: any) => {
+        this.isLoading = false;
+        this.toastr.error("Server didn't respond", 'Plz try later');
+      }
+    );
+
     // Edit Form START - Mudasir Ali
     this.EditForm = new FormGroup({
-      userName: new FormControl('', [
+      userName: new FormControl(this.user.userName, [
         Validators.required,
         Validators.minLength(2),
         Validators.maxLength(30),
@@ -59,24 +77,37 @@ export class UserProfileComponent implements OnInit {
       confirmPassword: new FormControl('', [Validators.required]),
     });
     // Edit Form END
+  }
 
-    this.userService.gerUserByUserName(this.userName).subscribe(
-      (res: any) => {
-        if (res.succeeded) {
-          this.user = res.user;
-          this.isLoading = false;
-          this.message.success('Data fetched Successfully');
-        } else if (!res.succeeded && res.code == "UsernameNotFound")
-        {
-          this.isLoading = false;
-          this.notFound = true;
-          this.message.error(res.description);
-        }
-      },
-      (error: any) => {
-        this.isLoading = false;
-        this.toastr.error("Server didn't respond", 'Plz try later');
-      }
-    );
+  get UserName() {
+    return this.EditForm.get('userName') as FormControl;
+  }
+
+  get FirstName() {
+    return this.EditForm.get('firstName') as FormControl;
+  }
+
+  get LastName() {
+    return this.EditForm.get('lastName') as FormControl;
+  }
+
+  get Email() {
+    return this.EditForm.get('email') as FormControl;
+  }
+
+  get PhoneNumber() {
+    return this.EditForm.get('phoneNumber') as FormControl;
+  }
+
+  get Password() {
+    return this.EditForm.get('password') as FormControl;
+  }
+
+  get ConfirmPassword() {
+    return this.EditForm.get('confirmPassword') as FormControl;
+  }
+
+  onSubmit() {
+    
   }
 }

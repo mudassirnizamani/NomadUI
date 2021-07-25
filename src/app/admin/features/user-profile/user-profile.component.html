@@ -40,6 +40,24 @@
           </div>
           <div class="card1__body">
             <div class="card1__list"></div>
+            <form
+            [formGroup]="EditForm"
+            #editForm="ngForm"
+            (ngSubmit)="onSubmit()"
+          >
+          <div class="pb-10">
+            <div class="w-full mb-2">
+              <div class="row user-detail-row my-3">
+                <div class="col-md-5">
+                  <label class="card__title">UserName</label>
+                </div>
+                <div class="mt-1">
+                  <input nz-input placeholder="UserName" formControlName="userName" [value]="user.userName" [disabled]="true" />
+                </div>
+              </div>
+            </div>
+          </div>
+          </form>
           </div>
         </div>
       </div>

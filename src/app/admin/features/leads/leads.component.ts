@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { ToastrService } from 'ngx-toastr';
@@ -6,6 +6,9 @@ import { ILead } from 'src/app/core/models/ILead.interface';
 import { LeadService } from 'src/app/core/services/lead/lead.service';
 import { getAllLeads } from 'src/app/store/actions/leads/leads.actions';
 import { LeadsState } from 'src/app/store/reducers/leads/leads.reducer';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatSort } from '@angular/material/sort';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-leads',
@@ -18,6 +21,19 @@ export class LeadsComponent implements OnInit {
   isVisible = false;
   isConfirmLoading = false;
   leads$ = this.store.select('leads');
+
+  listData: MatTableDataSource<any>;
+  displayedColumns: string[] = [
+    'name',
+    'email',
+    'mobile',
+    'city',
+    'departmentName',
+    'actions',
+  ];
+  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  searchKey: string;
 
   constructor(
     private leadsService: LeadService,
@@ -60,9 +76,30 @@ export class LeadsComponent implements OnInit {
     //     this.toastr.error("Server Didn't Respond", 'Plz try later');
     //   }
     // );
+
     this.store.dispatch(getAllLeads());
-    this.leads$.subscribe((data: any) => {
-      (this.allLeads = data), console.log(data);
+    this.leads$.subscribe((data: ILead[]) => {
+      this.allLeads = data;
+      this.listData = new MatTableDataSource(data);
+      this.listData.sort = this.sort;
+      this.listData.paginator = this.paginator;
+
+      this.listData.filterPredicate = (data, filter) => {
+        return this.displayedColumns.some((ele) => {
+          return (
+            ele != 'actions' && data[ele].toLowerCase().indexOf(filter) != -1
+          );
+        });
+      };
     });
+  }
+
+  onSearchClear() {
+    this.searchKey = '';
+    this.applyFilter();
+  }
+
+  applyFilter() {
+    this.listData.filter = this.searchKey.trim().toLowerCase();
   }
 }

@@ -13,13 +13,12 @@ import { notificationsSelector } from 'src/app/store/selectors/notifications/not
 export class NotificationsComponent implements OnInit {
   notifications: INotification[];
   notifications$ = this.store.pipe(select(notificationsSelector));
-  
 
   constructor(private store: Store<NotificationsState>) {}
 
   ngOnInit(): void {
     this.store.dispatch(getNotifications());
     this.notifications$.subscribe((data) => (this.notifications = data));
-    console.log(this.notifications)
+    console.log(this.notifications);
   }
 }

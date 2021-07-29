@@ -22,6 +22,9 @@ export const environment = {
   },
   Leads: {
     GetAllLeads: '/Lead/GetAllLeads/'
+  },
+  Notifications: {
+    GetNotifications: '/Notifications/GetNotifications/'
   }
 };
 

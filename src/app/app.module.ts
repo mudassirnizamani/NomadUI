@@ -51,11 +51,12 @@ import { EmployeeFeaturesModule } from './employee/features/features.module';
 import * as fromUser from './store/reducers/user/user.reducer';
 import * as fromUsers from './store/reducers/users/users.reducer';
 import * as fromLeads from './store/reducers/leads/leads.reducer';
-import * as fromNotificaionts from './store/reducers/notifications/notifcations.reducer'
+import * as fromNotificaionts from './store/reducers/notifications/notifcations.reducer';
 
 // Effects
 import { UserEffects } from './store/effects/user/user.effects';
 import { usersEffects } from './store/effects/users/users';
+import { notificationsEffects } from './store/effects/notifications/notifcations';
 
 registerLocaleData(en);
 
@@ -106,7 +107,7 @@ const EmployeeModules = [
       user: fromUser.reducer,
       users: fromUsers.reducer,
       leads: fromLeads.reducer,
-      notifications: fromNotificaionts.reducer
+      notifications: fromNotificaionts.reducer,
     }),
     CustomModules,
     AdminModules,
@@ -116,7 +117,7 @@ const EmployeeModules = [
       maxAge: 25,
       logOnly: environment.production,
     }),
-    EffectsModule.forRoot([UserEffects, usersEffects]),
+    EffectsModule.forRoot([UserEffects, usersEffects, notificationsEffects]),
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent],

@@ -4,12 +4,14 @@ import { CommonModule } from '@angular/common';
 import { ProjectsRoutingModule } from './projects-routing.module';
 import { ProjectsComponent } from './projects.component';
 import { SummaryComponent } from './components/summary/summary.component';
+import { ProjectCardComponent } from './components/project-card/project-card.component';
 
 
 @NgModule({
   declarations: [
     ProjectsComponent,
-    SummaryComponent
+    SummaryComponent,
+    ProjectCardComponent
   ],
   imports: [
     CommonModule,

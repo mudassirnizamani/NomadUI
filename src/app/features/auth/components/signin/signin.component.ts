@@ -59,7 +59,6 @@ export class SigninComponent implements OnInit {
 
       this.authService.Sigin(model).subscribe(
         (res: any) => {
-          console.log(res);
           if (!res.succeeded && res.code == 'UsernameNotFound') {
             this.message.error(res.description);
             this.isLoading = false;
@@ -87,7 +86,6 @@ export class SigninComponent implements OnInit {
                   this.isLoading = false;
                 } else if (res.succeeded) {
                   res.roles.forEach((role) => {
-                    console.log(role);
                     if (role == 'Client') {
                       localStorage.setItem('userType', 'Client');
                       this.SigninForm.reset();

@@ -138,7 +138,7 @@ export class EmployeeSignupComponent implements OnInit {
             this.toastr.error(res.description, 'ServerError');
             this.isLoading = false;
           } else {
-            res.errors.forEach((element) => {
+            res.errors.forEach((element: any) => {
               switch (element.code) {
                 case 'DuplicateUserName':
                   this.message.error(
